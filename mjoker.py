@@ -34,24 +34,6 @@ async def on_ready():
 
 
 
-@client.command(pass_context = True)
-async def help(ctx):
-    if ctx.message.author.bot:
-      return
-    else:
-      author = ctx.message.author
-      r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-      embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-      embed.set_author(name='💁Help')
-      embed.add_field(name = '😁commands,',value ='``mk!tweet <name><text>``, ``mk!lovedetect @user1@user2``, ``mk!ping``, ``mk!setupwelcome``, ``mk!virus @user<text>``, ``mk!meme``, ``mk!nsfw``,',inline = False)
-      dmmessage = await client.send_message(author,embed=embed)
-      await client.say('Check your direct messages')
- 
-
-
-
-
-
 
 
 @client.command(pass_context=True)
