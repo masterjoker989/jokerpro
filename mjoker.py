@@ -25,6 +25,14 @@ async def on_ready():
 	return await client.change_presence(game=discord.Game(name='Master play bot  | 16790 users')) #add_your_bot_status_here
 	
 
+def is_owner(ctx):
+    return ctx.message.author.id == "<@498378677512437762>" #replace_it_with_your_discord_id
+
+def is_soyal(ctx):
+    return ctx.message.author.id == "<@498378677512437762>" 		
+ 
+
+
 
 
 
