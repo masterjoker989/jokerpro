@@ -12,7 +12,7 @@ import functools
 import time
 import datetime
 
-client = commands.Bot(description="Here is some command for you", command_prefix=commands.when_mentioned_or("mk!"), pm_help = False)
+client = commands.Bot(description="Here is some command for you", command_prefix=commands.when_mentioned_or("mw!"), pm_help = False)
 
 
 
@@ -22,7 +22,7 @@ async def on_ready():
 	print('--------')
 	print('--------')
 	print('Started Soyal') #add_your_bot_name_here
-	return await client.change_presence(game=discord.Game(name='Master play bot  | 16790 users')) #add_your_bot_status_here
+	return await client.change_presence(game=discord.Game(name='Master play bot  | 26790 users')) #add_your_bot_status_here
 	
 
 def is_owner(ctx):
