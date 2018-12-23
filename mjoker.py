@@ -144,49 +144,17 @@ async def meme(ctx):
     await client.send_message(ctx.message.channel, embed=embed) 
 	
 
-		
-@client.event
-async def on_member_join(member):
-    print("In our server" + member.name + " just joined")
-    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-    embed = discord.Embed(color = discord.Color((r << 16) + (g << 8) + b))
-    embed.set_author(name='Welcome message')
-    embed.add_field(name = '__Welcome to Our Server__',value ='**Thanks for Joining our Server Hope you enjoy please respect all members and staff.**',inline = False)
-    embed.set_image(url = 'https://cdn.discordapp.com/attachments/524952935311081473/525252450526167063/200w_s.gif')
-    await client.send_message(member,embed=embed)
-    print("Sent message to " + member.name)
-    channel = discord.utils.get(client.get_all_channels(), server__name='bysoyal2', name='★彡-welcome-彡★')
-    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-    embed = discord.Embed(title=f'Welcome {member.name} to {member.server.name}', description='Do not forget to check Rules and never try to break any one of them', color = discord.Color((r << 16) + (g << 8) + b))
-    embed.add_field(name='__Thanks for joining__', value='**Hope you will be active here.**', inline=True)
-    embed.add_field(name='Your join position is', value=member.joined_at)
-    embed.set_image(url = 'https://cdn.discordapp.com/attachments/524952935311081473/525252450526167063/200w_s.gif')
-    embed.set_thumbnail(url=member.avatar_url)
-    await client.send_message(channel, embed=embed)	
-  
 
 
 @client.command(pass_context = True)
-async def nsfw(ctx):
-    choices = ['https://nekobot.xyz/4k/4nwolgdyczisp7xkhv6m.jpg', 'https://nekobot.xyz/pgif/4gv9cotuslx5qdn2f6y3.gif', 'https://nekobot.xyz/4k/58pyda2t34k6ze19glro.jpg', 'https://nekobot.xyz/4k/9hld4qabskju2ry5fomx.jpg',]
-    r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-    embed = discord.Embed(title='boobs', color = discord.Color((r << 16) + (g << 8) + b))
-    embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/520159870448566287/520829749095038977/pubg.png') 
-    embed.set_image(url = random.choice(choices))
-    await client.send_typing(ctx.message.channel)
-    await client.send_message(ctx.message.channel, embed=embed) 
-
-
-	
-@client.command(pass_context = True)
-@commands.has_permissions(administrato=True) 
+@commands.has_permissions(administrator=True) 
 async def announce(ctx, channel: discord.Channel=None, *, msg: str):
     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
     embed=discord.Embed(title="Announcement", description="{}".format(msg), color = discord.Color((r << 16) + (g << 8) + b))
     await client.send_message(channel, embed=embed)
     await client.delete_message(ctx.message)
-	
 
+	
 	
 @client.command(pass_context=True, aliases=['server'])
 @commands.has_permissions(kick_members=True)
