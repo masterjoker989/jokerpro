@@ -22,7 +22,7 @@ async def on_ready():
 	print('--------')
 	print('--------')
 	print('Started Soyal') #add_your_bot_name_here
-	return await client.change_presence(game=discord.Game(name='for mk!help ')) #add_your_bot_status_here
+	return await client.change_presence(game=discord.Game(name='Master play bot  | 16790 users')) #add_your_bot_status_here
 	
 
 
@@ -56,30 +56,6 @@ async def dm(ctx, user: discord.Member, *, msg: str):
 	
 		
 		
-@client.command(pass_context=True)
-async def lovedetect(ctx, user: discord.Member = None, *, user2: discord.Member = None):
-    shipuser1 = user.name
-    shipuser2 = user2.name
-    useravatar1 = user.avatar_url
-    useravatar2s = user2.avatar_url
-    self_length = len(user.name)
-    first_length = round(self_length / 2)
-    first_half = user.name[0:first_length]
-    usr_length = len(user2.name)
-    second_length = round(usr_length / 2)
-    second_half = user2.name[second_length:]
-    finalName = first_half + second_half
-    score = random.randint(0, 100)
-    filled_progbar = round(score / 100 * 10)
-    counter_ = '█' * filled_progbar + '‍ ‍' * (10 - filled_progbar)
-    url = f"https://nekobot.xyz/api/imagegen?type=ship&user1={useravatar1}&user2={useravatar2s}"
-    async with aiohttp.ClientSession() as cs:
-        async with cs.get(url) as r:
-            res = await r.json()
-            r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
-            embed = discord.Embed(title=f"{shipuser1} ❤ {shipuser2} Love each others", description=f"Love\n`{counter_}` Score:**{score}% **\nLoveName:**{finalName}**", color = discord.Color((r << 16) + (g << 8) + b))
-            embed.set_image(url=res['message'])
-            await client.say(embed=embed)
 
 	
 	
@@ -147,47 +123,6 @@ async def setupwelcome(ctx):
 
 	
 
-@client.command(pass_context=True)
-async def virus(ctx,user: discord.Member=None,*,hack=None):
-    nome = ctx.message.author
-    if not hack:
-        hack = 'discord'
-    else:
-        hack = hack.replace(' ','_')
-    channel = ctx.message.channel
-    x = await client.send_message(channel, '``[▓▓▓                    ] / {}-virus.exe Packing files.``'.format(hack))
-    await asyncio.sleep(1.5)
-    x = await client.edit_message(x,'``[▓▓▓▓▓▓▓                ] - {}-virus.exe Packing files..``'.format(hack))
-    await asyncio.sleep(0.3)
-    x = await client.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓           ] \ {}-virus.exe Packing files...``'.format(hack))
-    await asyncio.sleep(1.2)
-    x = await client.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓         ] | {}-virus.exe Initializing code.``'.format(hack))
-    await asyncio.sleep(1)
-    x = await client.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ] / {}-virus.exe Initializing code..``'.format(hack))
-    await asyncio.sleep(1.5)
-    x = await client.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ] - {}-virus.exe Finishing.``'.format(hack))
-    await asyncio.sleep(1)
-    x = await client.edit_message(x,'``[▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] \ {}-virus.exe Finishing..``'.format(hack))
-    await asyncio.sleep(1)
-    x = await client.edit_message(x,'``Successfully downloaded {}-virus.exe``'.format(hack))
-    await asyncio.sleep(2)
-    x = await client.edit_message(x,'``Injecting virus.   |``')
-    await asyncio.sleep(0.5)
-    x = await client.edit_message(x,'``Injecting virus..  /``')
-    await asyncio.sleep(0.5)
-    x = await client.edit_message(x,'``Injecting virus... -``')
-    await asyncio.sleep(0.5)
-    x = await client.edit_message(x,'``Injecting virus....\``')
-    await client.delete_message(x)
-    await client.delete_message(ctx.message)
-        
-    if user:
-        await client.say('`{}-virus.exe` successfully injected into **{}**\'s system.'.format(hack,user.name))
-        await client.send_message(user,'**Alert!**\n``You may have been hacked. {}-virus.exe has been found in your system\'s operating system.\nYour data may have been compromised. Please re-install your OS immediately.``'.format(hack))
-    else:
-        await client.say('**{}** has hacked himself ¯\_(ツ)_/¯.'.format(name.name))
-        await client.send_message(name,'**Alert!**\n``You may have been hacked. {}-virus.exe has been found in your system\'s operating system.\nYour data may have been compromised. Please re-install your OS immediately.``'.format(hack))
-	
 
 
 @client.command(pass_context = True)
