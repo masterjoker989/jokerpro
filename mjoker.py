@@ -22,7 +22,7 @@ async def on_ready():
 	print('--------')
 	print('--------')
 	print('Started Soyal') #add_your_bot_name_here
-	return await client.change_presence(game=discord.Game(name='Master play bot  | 26790 users')) #add_your_bot_status_here
+	return await client.change_presence(game=discord.Game(name='Master play bot | 26790 users')) #add_your_bot_status_here
 	
 
 def is_owner(ctx):
